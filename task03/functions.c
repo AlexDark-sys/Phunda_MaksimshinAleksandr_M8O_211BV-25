@@ -1,0 +1,3 @@
+#include "head.h"
+int triangle(double a,double b,double c,double e){if(a<=0||b<=0||c<=0)return 0;double s[3]={a,b,c};for(int i=0;i<3;i++)for(int j=i+1;j<3;j++)if(s[i]>s[j]){double t=s[i];s[i]=s[j];s[j]=t;}return fabs(s[0]*s[0]+s[1]*s[1]-s[2]*s[2])<=e*fmax(1,s[2]*s[2]);}
+void solve(double a,double b,double c,double e){printf("Equation %.6g*x^2 + %.6g*x + %.6g: ",a,b,c);if(fabs(a)<=e){if(fabs(b)<=e){puts(fabs(c)<=e?"all x":"no solution");return;}printf("x=%.10g\n",-c/b);return;}double d=b*b-4*a*c;if(d < -e){puts("no real roots");return;}if(fabs(d)<=e){printf("x=%.10g\n",-b/(2*a));return;}printf("x1=%.10g x2=%.10g\n",(-b+sqrt(d))/(2*a),(-b-sqrt(d))/(2*a));}

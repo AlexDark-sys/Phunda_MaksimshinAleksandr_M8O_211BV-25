@@ -1,0 +1,1 @@
+-r tests/input_task07_first.txt tests/input_task07_second.txt tests/output_task07_r.txt
